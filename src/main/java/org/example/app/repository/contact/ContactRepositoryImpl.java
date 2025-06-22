@@ -5,10 +5,13 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import org.example.app.dto.RequestContact;
 import org.example.app.entity.Contact;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@Repository("contactRepository")
 public class ContactRepositoryImpl implements ContactRepository {
 
 
