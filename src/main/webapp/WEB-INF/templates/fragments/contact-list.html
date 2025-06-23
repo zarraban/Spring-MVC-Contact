@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<body class="bg-body-secondary">
-		<div th:fragment="user-list" class="container p-2">
+		<div th:fragment="contact-list" class="container p-2">
 			<div class="container">
 				<div class="text-left mb-3">
-					<a th:href="@{/create-user}" class="btn btn-primary btn-sm m-2">
+					<a th:href="@{/create-contact}" class="btn btn-primary btn-sm m-2">
 						<i class="bi bi-plus-lg"></i>&nbsp;Add User</a><br>
 				</div>
 				<div class="bg-white p-3">
@@ -18,25 +18,25 @@
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
-						<tbody th:each="user:${users}">
+						<tbody th:each="contact:${contacts}">
 							<tr>
-								<td th:text="${user.id}"></td>
-								<td th:text="${user.firstName}"></td>
-								<td th:text="${user.lastName}"></td>
-								<td th:text="${user.email}"></td>
+								<td th:text="${contact.id}"></td>
+								<td th:text="${contact.name}"></td>
+								<td th:text="${contact.surname}"></td>
+								<td th:text="${contact.phone}"></td>
 								<td>
 									<a class="btn btn-warning btn-sm"
-									   th:href="@{/update-user/{id}(id=${user.id})}"
+									   th:href="@{/update-contact/{id}(id=${contact.id})}"
 									   role="button">Update</a>
 									&nbsp;&nbsp;
 									<a class="btn btn-danger btn-sm"
-									   th:href="@{/delete-user/{id}(id=${user.id})}"
+									   th:href="@{/delete-contact/{id}(id=${contact.id})}"
 									   role="button">Delete</a>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<p class="font-weight-bold fs-3 text-center bg-white" th:text="${usersInfo}"></p>
+					<p class="font-weight-bold fs-3 text-center bg-white" th:text="${contactInfo}"></p>
 				</div>
 			</div>
 		</div>
