@@ -1,0 +1,1 @@
+http://localhost:8080/Spring-MVC-Contact-1.0-SNAPSHOT/contacts
