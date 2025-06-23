@@ -25,4 +25,9 @@ public class Contact {
 
     private String phone;
 
+    public Contact(String name, String phone, String surname) {
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+    }
 }
