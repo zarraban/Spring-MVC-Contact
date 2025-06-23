@@ -21,7 +21,9 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public void create(RequestContact request) {
-        entityManager.persist(request);
+        Contact contact = new Contact(request.name(),request.phone(),
+                request.surname());
+        entityManager.persist(contact);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     @Override
     public boolean updateById(Long id, RequestContact request) {
         String hql = "UPDATE Contact c SET c.name =: name, c.phone = :phone, c.surname=:surname WHERE c.id=:id";
-        Query query = entityManager.createQuery(hql, Contact.class);
+        Query query = entityManager.createQuery(hql);
         query.setParameter("id",id);
         query.setParameter("name", request.name());
         query.setParameter("surname", request.surname());
@@ -49,7 +51,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     @Override
     public boolean deleteById(Long id) {
         String hql = "DELETE FROM Contact c WHERE c.id=:id";
-        Query query = entityManager.createQuery(hql, Contact.class);
+        Query query = entityManager.createQuery(hql);
         query.setParameter("id",id);
         return query.executeUpdate() > 0;
     }
