@@ -2,6 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<body class="bg-body-secondary">
 		<div th:fragment="contact-list" class="container p-2">
+
+			<div class="container centered-container">
+				<div class="p-3 mb-2 bg-primary text-white">
+
+					<form th:action="@{/contacts}" method="post">
+						<div class="input-group">
+							<span class="input-group-text">Input name for Greet!</span>
+							<input type="text" th:name="greetName" aria-label="Name" class="form-control" required>
+							<input class="btn btn-primary" type="submit" value="Send">
+						</div>
+
+						<p class="font-weight-bold text-center" th:text="${greetText}"></p>
+					</form>
+
+
+
+				</div>
+			</div>
+
+
 			<div class="container">
 				<div class="text-left mb-3">
 					<a th:href="@{/create-contact}" class="btn btn-primary btn-sm m-2">
